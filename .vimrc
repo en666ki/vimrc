@@ -1,3 +1,8 @@
+set termguicolors
+set incsearch
+set hlsearch
+set relativenumber
+let g:solarized_use16=1
 set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin indent on
@@ -5,13 +10,15 @@ filetype plugin indent on
 set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
+set softtabstop=4
+set mouse=a
 " On pressing tab, insert 4 spaces
 set expandtab
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " -- Украшательства
 Plugin 'altercation/vim-colors-solarized'
@@ -19,7 +26,7 @@ Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
 
 " ----- Vim as a programmer's text editor -----------------------------
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
@@ -56,6 +63,8 @@ Plugin 'cdelledonne/vim-cmake'
 " ----- RUST ---------------------------------------------------------
 Plugin 'rust-lang/rust.vim'
 
+Plugin 'ap/vim-css-color'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 "
@@ -76,14 +85,14 @@ set number
 set showcmd
 set incsearch
 set hlsearch
-
 syntax on
-
-set mouse=a
-
 set background=dark
 
-colorscheme solarized
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+map <leader>/ :nohl<CR>
+
+colorscheme solarized8
 
 " - bling/vim-airline -
 set laststatus=2
