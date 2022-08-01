@@ -1,13 +1,15 @@
 set termguicolors
 set incsearch
 set hlsearch
+set number 
 set relativenumber
-let g:solarized_use16=1
+"let g:solarized_use16=1
 set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
+set colorcolumn=100
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 set softtabstop=4
@@ -20,10 +22,18 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+
 " -- Украшательства
+"
+
+" -- Go
+Plugin 'fatih/vim-go'
+
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
+
+Plugin 'terryma/vim-multiple-cursors'
 
 " ----- Vim as a programmer's text editor -----------------------------
 Plugin 'preservim/nerdtree'
@@ -47,18 +57,12 @@ Plugin 'jez/vim-superman'
 
 " ----- Syntax plugins ------------------------------------------------
 "
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plugin 'octol/vim-cpp-enhanced-highlight'
 
 "Plugin 'jackguo380/vim-lsp-cxx-highlight'
 
 Plugin 'jez/vim-c0'
 Plugin 'jez/vim-ispc'
 Plugin 'kchmck/vim-coffee-script'
-
-" ----- CMake --------------------------------------------------------
-Plugin 'cdelledonne/vim-cmake'
 
 " ----- RUST ---------------------------------------------------------
 Plugin 'rust-lang/rust.vim'
@@ -88,11 +92,10 @@ set hlsearch
 syntax on
 set background=dark
 
-nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 map <leader>/ :nohl<CR>
 
-colorscheme solarized8
+colorscheme solarized
 
 " - bling/vim-airline -
 set laststatus=2
@@ -150,3 +153,8 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_class_scope_highlight = 1
 
 let g:rustfmt_autosave = 1
+
+
+nnoremap * :keepjumps normal! mi*`i<CR>
+
+nnoremap <leader>r :w<CR>:!./%<CR>
